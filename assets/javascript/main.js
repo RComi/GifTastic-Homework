@@ -1,21 +1,18 @@
-$(document).ready(function () {
-    createButtons();
-    $('#giphy-imgs').on('click', '.gif-img-area', toggleGif);
-    $('#search-btn').on('click', search);
-
-
-
-var apiKey = "f8q4j5HfP5rH2iycH2YexnELVq8BJh9I";
+var apiKey = "3b2SrvZDQP8Itasl5nakpnUrsCvMCChn";
  
 var sports = ["Football", "Baseball", "Basketball", "Rugby", "Bowling",
     "Golf", "Curling", "Tennis", "Lacrosse", "Hockey"];
  
 var limit = "10";
  
-
+$(document).ready(function () {
+    createButtons();
+    $('#giphy-imgs').on('click', '.gif-img-area', toggleGif);
+    $('#search-btn').on('click', search);
+});
  
 function getGiphyURL(searchTerm) {
-    return 'http://api.giphy.com/v1/gifs/search?q=' + searchTerm + "&limit=" + limit + '&api_key=' + apiKey;
+    return 'https://api.giphy.com/v1/gifs/search?q=' + searchTerm + "&limit=" + limit + '&api_key=' + apiKey;
 }
  
 function createButtons() {
@@ -49,15 +46,17 @@ function setUpGifs(queryURL) {
                 if (currentRating == "") {
                     currentRating = "none";
                 }
- 
+                var gifContainer = $('<div/>', {
+                    class: "gif-container col-sm-4"
+                });
+
                 var imgDiv = $('<div/>', {
                     class: "gif-img-area",
                     'data-value': "unclicked"
                 });
  
                 var ratingDiv = $('<div/>', {
-                    class: "gif-rating-area",
-                    'data-value': "unclicked"
+                    class: "gif-rating-area"
                 });
  
                 var currentGifImg = $('<img/>', {
@@ -79,8 +78,9 @@ function setUpGifs(queryURL) {
                 });
                 ratingDiv.append(currentGifRating);
                 
-                $('#giphy-imgs').append(imgDiv);
-                $('#giphy-imgs').append(ratingDiv);
+                $(gifContainer).append(imgDiv);
+                $(gifContainer).append(ratingDiv);
+                $('#giphy-imgs').append(gifContainer);
             }
         }
     });
@@ -115,4 +115,4 @@ function search() {
     }
     $('#search-input').val("");
 }
-});
+
