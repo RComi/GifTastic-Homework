@@ -1,40 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
+ 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
     <script src="assets/javascript/main.js "></script>
 </head>
-
+ 
 <body>
+    <div class="navbar-header">
+        <h3 class="float-left">
+            <a href="index.html">Sports Giphy Search</a>
+        </h3>
+        <div id="col-sm-4 giphy-search">
+            <form id="search-form" class="form-inline float-right" onsubmit="return false">
+                <label>Search:</label>
+                <input type="text" name="Search" id="search-input" class="form-control" placeholder="Input Search Term">
+                <input type="button" id="search-btn" value="Search" class="btn btn-success">
+            </form>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
-            <div class="col-sm-8">
-                <div id="giphy-btns">
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div id="giphy-search">
-                    <form id="search-form" class="form-inline">
-                        <label>Search:</label>
-                        <input type="text" name="Search" id="search-input" class="form-control" placeholder="Input Search Term">
-                        <input type="button" id="search-btn" value="Search" class="btn btn-success">
-                    </form>
+            <div class="col-sm-12">
+                <!-- div stores buttons created by array -->
+                <div id="giphy-btns" class="navbar-btn-header">
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-12 padded">
+                <!-- holds the gif images returned from api -->
                 <div id="giphy-imgs">
                 </div>
             </div>
         </div>
     </div>
 </body>
-
+ 
 </html>
+
